@@ -2,10 +2,10 @@ const nodemailer = require('nodemailer');
 const { google } = require('googleapis');
 
 // These id's and secrets should come from .env file.
-const CLIENT_ID = '38548963332-1ouerppa2qdj37m0loe0ufjlgl8idlgp.apps.googleusercontent.com';
-const CLEINT_SECRET = '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';
+const CLIENT_ID = 'your client id';
+const CLEINT_SECRET = 'your client sceret';
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = '1//04ulhBzRMDkTiCgYIARAAGAQSNwF-L9Irja02k_Rmd0TMmjnPWolxNw7HB_TyW6nPF5VNInQtmkoQNtTEJP4gBlr39flbneJrAHM';
+const REFRESH_TOKEN = 'your refresh token';
 
 const oAuth2Client = new google.auth.OAuth2(
   CLIENT_ID,
@@ -22,7 +22,7 @@ async function sendMail() {
       service: 'gmail',
       auth: {
         type: 'OAuth2',
-        user: 'karthik.md@polynomial.ai',
+        user: 'your mail_id',
         clientId: CLIENT_ID,
         clientSecret: CLEINT_SECRET,
         refreshToken: REFRESH_TOKEN,
@@ -31,8 +31,8 @@ async function sendMail() {
     });
 
     const mailOptions = {
-      from: 'YOURPOLYNOMIAL📧<karthik.md@polynomial.ai>',
-      to: 'hppriya27@gmail.com',
+      from: 'YOURPOLYNOMIAL📧<your mail-id>',
+      to: 'reciver mail-id',
       subject: 'Hello from gmail using API',
       text: 'Hello from gmail email using API',
       html: '<h1>Hello from gmail email using API</h1>',
